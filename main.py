@@ -1,13 +1,13 @@
 from RPi.GPIO import setmode, BCM, setup, OUT, PWM
 from time import sleep
 
-SERVO_PIN = 23
+SERVO_PIN: int = 23
 
-def set_target_angle(pwm, angle):
+def set_target_angle(pwm: PWM, angle: float) -> None:
     dc = 5.2 * angle / 110.0 + 5.0
     pwm.ChangeDutyCycle(dc)
 
-def rotate_to(pwm, angle):
+def rotate_to(pwm: PWM, angle: float) -> None:
     set_target_angle(pwm, angle)
     print(f"Moving to {angle} (internal = {dc})")
     sleep(2.5)
