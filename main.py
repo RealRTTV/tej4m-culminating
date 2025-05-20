@@ -1,4 +1,4 @@
-from RPi.GPIO import setmode, BCM, setup, OUT, PWM
+from RPi.GPIO import setmode, BCM, setup, OUT, PWM, cleanup
 from time import sleep
 # hi !!!!
 SERVO_PIN: int = 23
@@ -28,4 +28,3 @@ if __name__ == "__main__":
         main()
     finally:
         cleanup()
-
