@@ -3,9 +3,12 @@ from time import sleep
 
 SERVO_PIN = 23
 
-def rotate(pwm, angle):
+def set_target_angle(pwm, angle):
     dc = 5.2 * angle / 110.0 + 5.0
     pwm.ChangeDutyCycle(dc)
+
+def rotate_to(pwm, angle):
+    set_target_angle(pwm, angle)
     print(f"Moving to {angle} (internal = {dc})")
     sleep(2.5)
 
@@ -16,8 +19,8 @@ def main():
     pwm = PWM(SERVO_PIN, 50)
     pwm.start(0)
     while True:
-        rotate(pwm, 90)
-        rotate(pwm, -10)
+        rotate_to(pwm, 90)
+        rotate_to(pwm, -10)
     pwm.stop(0)
 
 if __name__ == "__main__":
