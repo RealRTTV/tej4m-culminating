@@ -9,7 +9,7 @@ def set_target_angle(pwm: PWM, angle: float) -> None:
 
 def rotate_to(pwm: PWM, angle: float) -> None:
     set_target_angle(pwm, angle)
-    print(f"Moving to {angle} (internal = {dc})")
+    print(f"Moving to {angle}")
     sleep(2.5)
 
 setmode(BCM)
