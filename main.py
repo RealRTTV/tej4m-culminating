@@ -2,7 +2,7 @@ from RPi.GPIO import setmode, BCM, setup, OUT, PWM, cleanup
 from time import sleep
 # hi !!!!
 SERVO_PIN: int = 23
-
+#Whatever I want!
 def set_target_angle(pwm: PWM, angle: float) -> None:
     dc = 5.2 * angle / 110.0 + 5.0
     pwm.ChangeDutyCycle(dc)
